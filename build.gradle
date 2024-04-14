@@ -16,18 +16,16 @@ dependencies {
 }
 
 test {
-    // Включает в лог информацию о запущенных тестах
+
     testLogging {
-        // Устанавливаем минимальный уровень логирования
+
         events "passed", "skipped", "failed", "standardOut", "standardError"
 
-        // Выводит в лог все события для каждого теста, когда тест проваливается
         showExceptions true
         exceptionFormat "full"
         showCauses true
         showStackTraces true
 
-        // Выводит в лог stdout и stderr для всех тестов
         showStandardStreams true
     }
 }
