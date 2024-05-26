@@ -12,20 +12,21 @@ repositories {
 
 dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.19.1'
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.testng:testng:7.10.2'
+    testImplementation 'junit:junit:4.13.1'
 }
 
 test {
+    useTestNG() {
+        suites 'src/test/resources/testng.xml' // Указание пути к файлу testng.xml
+    }
 
     testLogging {
-
         events "passed", "skipped", "failed", "standardOut", "standardError"
-
         showExceptions true
         exceptionFormat "full"
         showCauses true
         showStackTraces true
-
         showStandardStreams true
     }
 }

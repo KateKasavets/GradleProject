@@ -21,6 +21,9 @@ public class LoginPage {
     @FindBy(id = "password")
     private WebElement passwdField;
 
+    @FindBy(xpath = "//button[@id=\"apple\"]")
+    private WebElement loginExternal;
+
     public void inputLogin(String login) {
         loginField.sendKeys(login); }
 
@@ -30,7 +33,9 @@ public class LoginPage {
     public void clickLoginBtn() {
         loginBtn.click();
     }
-
+    public void clickLoginExternal() {
+        loginExternal.click();
+    }
 }
 
 
