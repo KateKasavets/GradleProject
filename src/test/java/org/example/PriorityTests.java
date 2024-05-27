@@ -57,5 +57,5 @@ public class PriorityTests {
     public void tearDown() {
         driver.quit();
     }
-    }
+}
 
