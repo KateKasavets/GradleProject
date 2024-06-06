@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite1" parallel = "tests" thread-count="2">
-    <test name = "LoginTest">
+<suite name="Suite1" parallel="tests" thread-count="2">
+    <test name="LoginTest">
         <classes>
-    <class name="org.example.LoginTest"/>
+            <class name="org.example.LoginTest"/>
         </classes>
     </test>
     <test name="DependentTest">
@@ -10,7 +10,7 @@
             <class name="org.example.DependentTests"/>
         </classes>
     </test>
-    <test name ="ParameterizedTest">
+    <test name="ParameterizedTest">
         <parameter name="username1" value="catharinekosovets2189@gmail.com"/>
         <parameter name="password1" value="kk25474kk"/>
         <parameter name="username2" value="evinasenla@gmail.com"/>
@@ -19,11 +19,14 @@
             <class name="org.example.ParameterizedTest"/>
         </classes>
     </test>
-        <test name ="Other Tests">
-            <classes>
+    <test name="Other Tests">
+        <classes>
             <class name="org.example.AssertsTest"/>
             <class name="org.example.PriorityTests"/>
-            <class name="org.example.ClassForExclusion">
+            <class name="org.example.DependentTests"/>
+            <class name="org.example.PageFactoryTest"/>
+            <class name="org.example.ClassForExclusion"/>
+            <class name="org.example.DataProviderParameterized">
                 <methods>
                     <exclude name="LoginWithGoogle"/>
                 </methods>
