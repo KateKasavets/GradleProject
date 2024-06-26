@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.LoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-26T09:16:03" hostname="KOS-HOME" time="2.488">
+  <properties/>
+  <testcase name="loginTest" classname="org.example.LoginTest" time="2.488"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[июн. 26, 2024 12:15:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 126, returning the closest version; found: 123; Please update to a Selenium version that supports CDP version 126
+]]></system-err>
+</testsuite>
