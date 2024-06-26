@@ -1,24 +1,19 @@
 package org.example;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
-import java.util.concurrent.TimeUnit;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
-
-@Test(enabled = false)
-public class ClassForExclusion {
-    private WebDriver driver;
+public class ExclusionTests extends BaseTest {
     private LogPage logPage;
 
     @BeforeClass
+    @Override
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        super.setup();
         driver.get("https://auth.applitools.com/users/login");
         logPage = new LogPage(driver);
+
     }
 
     @Test
@@ -29,7 +24,8 @@ public class ClassForExclusion {
     }
 
     @Test
-    public void LoginWithGoogle(){
-    logPage.clickGoogleButton();
+    public void loginWithGoogleTest() {
+        logPage.clickGoogleButton();
+
     }
 }

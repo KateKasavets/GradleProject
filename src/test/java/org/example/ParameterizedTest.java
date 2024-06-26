@@ -1,25 +1,21 @@
 package org.example;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
 
-import java.util.concurrent.TimeUnit;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
-public class ParameterizedTest {
-    public static WebDriver driver;
+public class ParameterizedTest extends BaseTest {
+    private LoginPage loginPage;
 
     @BeforeMethod
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        super.setup();
         driver.get(ConfProperties.getProperty("loginpage"));
+        loginPage = new LoginPage(driver);
     }
 
     @Parameters({"username1", "password1"})
@@ -35,13 +31,11 @@ public class ParameterizedTest {
     }
 
     private void performLoginTest(String username, String password) {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.inputLogin(username);
         loginPage.inputPasswd(password);
         loginPage.clickLoginBtn();
-        WebElement pageTitle = driver.findElement(By.xpath("//*[@class=\"title\"]"));
-        assertTrue("Название страницы отображается", pageTitle.isDisplayed());
-        assertEquals(pageTitle.getText(), "Обзор учетной записи", "Текст заголовка не соответствует ожидаемому");
+        assertTrue("Название страницы отображается", loginPage.isPageTitleDisplayed());
+        assertEquals(loginPage.getPageTitleText(), "Обзор учетной записи", "Текст заголовка не соответствует ожидаемому");
     }
 
     @AfterMethod

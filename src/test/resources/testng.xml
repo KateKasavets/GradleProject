@@ -1,5 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite1" parallel = "tests" thread-count="2">
+
     <test name = "LoginTest">
         <classes>
     <class name="org.example.LoginTest"/>
@@ -23,7 +24,7 @@
             <classes>
             <class name="org.example.AssertsTest"/>
             <class name="org.example.PriorityTests"/>
-            <class name="org.example.ClassForExclusion">
+            <class name="org.example.ExclusionTests">
                 <methods>
                     <exclude name="LoginWithGoogle"/>
                 </methods>
