@@ -1,20 +1,20 @@
 package tests;
 
-import utils.WebDriverSingleton;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import utils.WebDriverSingleton;
 
 public class BaseTest {
 
     protected WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setup() {
         driver = WebDriverSingleton.getDriver();
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         WebDriverSingleton.quitDriver();
     }

@@ -11,10 +11,6 @@
         </classes>
     </test>
     <test name="ParameterizedTest">
-        <parameter name="username1" value="catharinekosovets2189@gmail.com"/>
-        <parameter name="password1" value="kk25474kk"/>
-        <parameter name="username2" value="evinasenla@gmail.com"/>
-        <parameter name="password2" value="kk25474kk"/>
         <classes>
             <class name="tests.ParameterizedTest"/>
         </classes>
