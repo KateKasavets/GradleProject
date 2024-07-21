@@ -19,7 +19,7 @@ dependencies {
 
 test {
     useTestNG() {
-        suites 'src/test/resources/testng.xml' // Указание пути к файлу testng.xml
+        suites 'src/test/resources/testng.xml'
     }
 
     testLogging {
