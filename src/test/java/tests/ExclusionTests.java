@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageObjects.LogPage;
+import utils.ConfProperties;
 
 import static org.testng.Assert.assertEquals;
 
@@ -15,9 +16,8 @@ public class ExclusionTests extends BaseTest {
     @BeforeClass
     public void setup() {
         super.setup();
-        driver.get("https://auth.applitools.com/users/login");
+        driver.get(ConfProperties.getAppDemoPage());
         logPage = new LogPage(driver);
-
     }
 
     @Test
@@ -31,6 +31,5 @@ public class ExclusionTests extends BaseTest {
         logPage.signInWithTryNowButton();
         WebElement tryNowElement = driver.findElement(By.xpath("//a[@class='link']"));
         Assert.assertTrue(tryNowElement.isDisplayed(), "Кнопка Sign in не найдена или не видима на странице.");
-
     }
 }

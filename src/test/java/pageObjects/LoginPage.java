@@ -79,10 +79,4 @@ public class LoginPage {
         inputPasswd(password);
         clickLoginBtn();
     }
-
-    public void performLoginTest(String username, String password) {
-        inputLogin(username);
-        inputPasswd(password);
-        clickLoginBtn();
-    }
 }

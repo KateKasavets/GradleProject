@@ -37,4 +37,20 @@ public class ConfProperties {
     public static String getChromeDriverPath() {
         return getProperty("chromedriverpath");
     }
+
+    public static String getRegistrationPage() {
+        return getProperty("registrationpage");
+    }
+
+    public static String getAppDemoPage() {
+        return getProperty("appdemopage");
+    }
+
+    public static String getPassword2() {
+        return getProperty("password2");
+    }
+
+    public static String getLogin2() {
+        return getProperty("login2");
+    }
 }

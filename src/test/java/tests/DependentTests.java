@@ -1,25 +1,31 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.LogPage;
+import utils.ConfProperties;
+import utils.WebDriverSingleton;
 
 import static org.testng.Assert.assertTrue;
 
 public class DependentTests extends BaseTest {
     private LogPage logPage;
 
+
     @BeforeClass
     public void setup() {
         super.setup();
-        driver.get("https://auth.applitools.com/users/login");
+        driver.get(ConfProperties.getAppDemoPage());
         logPage = new LogPage(driver);
     }
 
+
     @Test
     public void loginTest() {
-        logPage.login("evinasenla@gmail.com", "kk25474kkKK!");
+        logPage.login(ConfProperties.getLogin(), ConfProperties.getPassword2());
         assertTrue(logPage.isChooseProductButtonDisplayed(), "Choose product button is not displayed");
     }
 

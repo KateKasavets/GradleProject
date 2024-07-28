@@ -14,7 +14,6 @@ public class LogPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-
     @FindBy(xpath = "//input[@type='email']")
     private WebElement emailField;
     @FindBy(xpath = "//input[@type='password']")
@@ -102,7 +101,7 @@ public class LogPage {
     }
 
     public void clickLogOutButton() {
-        logOutButton.click();
+            logOutButton.click();
     }
 
     public boolean isSignInPageTitleDisplayed() {

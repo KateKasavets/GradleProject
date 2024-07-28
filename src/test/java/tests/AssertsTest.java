@@ -4,6 +4,7 @@ import pageObjects.RegistrationPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import utils.ConfProperties;
 
 import static org.testng.Assert.assertTrue;
 
@@ -14,7 +15,7 @@ public class AssertsTest extends BaseTest {
     public void setup() {
         super.setup();
         registrationPage = new RegistrationPage(driver);
-        driver.get("https://auth.applitools.com/users/general-register");
+        driver.get(ConfProperties.getRegistrationPage());
     }
 
     @Test
