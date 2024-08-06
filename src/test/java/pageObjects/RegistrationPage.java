@@ -10,10 +10,13 @@ public class RegistrationPage {
 
     @FindBy(xpath = "//input[@id='first-name']")
     private WebElement firstNameField;
+
     @FindBy(xpath = "//input[@id='age']")
     private WebElement ageField;
+
     @FindBy(xpath = "//input[@id='last-name']")
     private WebElement lastNameField;
+
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;

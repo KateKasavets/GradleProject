@@ -10,6 +10,7 @@ import utils.ConfProperties;
 import utils.WebDriverSingleton;
 
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
 public class DependentTests extends BaseTest {
     private LogPage logPage;
@@ -46,6 +47,6 @@ public class DependentTests extends BaseTest {
     public void logOutTest() {
         logPage.clickLogOutButton();
         assertTrue(logPage.isSignInPageTitleDisplayed(), "Название страницы авторизации не отображается");
-        Assert.assertEquals(logPage.getSignInPageTitleText(), "Sign in", "Пользователь не на странице авторизации");
+        assertEquals(logPage.getSignInPageTitleText(), "Sign in", "Пользователь не на странице авторизации");
     }
 }

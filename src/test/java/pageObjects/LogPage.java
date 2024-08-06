@@ -16,6 +16,7 @@ public class LogPage {
 
     @FindBy(xpath = "//input[@type='email']")
     private WebElement emailField;
+
     @FindBy(xpath = "//input[@type='password']")
     private WebElement passwordField;
 
@@ -42,7 +43,6 @@ public class LogPage {
 
     @FindBy(xpath = "//h1[@class='title']")
     private WebElement signInPageTitle;
-
 
     public LogPage(WebDriver driver) {
         this.driver = driver;
