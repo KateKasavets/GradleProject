@@ -24,6 +24,7 @@
                     <exclude name="tryNowButton"/>
                 </methods>
             </class>
+            <class name="selenideTests.RegistrationDemQATests"/>
         </classes>
     </test>
 </suite>
