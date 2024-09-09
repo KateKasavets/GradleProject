@@ -1,16 +1,13 @@
 package selenideTests;
 
-import org.testng.annotations.AfterMethod;
+import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.codeborne.selenide.WebDriverRunner;
 import utils.ConfProperties;
-import utils.WebDriverSingleton;
-
 import java.io.File;
-
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static org.testng.Assert.assertTrue;
+
 
 public class RegistrationDemQATests {
 
@@ -18,8 +15,10 @@ public class RegistrationDemQATests {
 
     @BeforeMethod
     public void setUp() {
-
-        WebDriverRunner.setWebDriver(WebDriverSingleton.getDriver());
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        Configuration.screenshots = true;
+        Configuration.reportsFolder = "test-result/reports";
         registrationPageDemQA = new RegistrationPageDemQA();
     }
 
@@ -27,34 +26,27 @@ public class RegistrationDemQATests {
     public void RegistrationTests() {
         open(ConfProperties.getDemoQaPage());
 
-        registrationPageDemQA.firstNameField.setValue("John");
-        registrationPageDemQA.lastNameField.setValue("Johnovich");
-        registrationPageDemQA.emailField.setValue("john@hmail.con");
-        registrationPageDemQA.genderRadioButton.click();
-        registrationPageDemQA.phoneNumberField.setValue("1212121212");
-        registrationPageDemQA.dateOfBirthInput.click();
-        registrationPageDemQA.yearSelect.selectOption("1970");
-        registrationPageDemQA.monthSelect.selectOption("June");
+        registrationPageDemQA.getFirstNameField().setValue("John");
+        registrationPageDemQA.getLastNameField().setValue("Johnovich");
+        registrationPageDemQA.getEmailField().setValue("john@hmail.con");
+        registrationPageDemQA.getGenderRadioButton().click();
+        registrationPageDemQA.getPhoneNumberField().setValue("1212121212");
+        registrationPageDemQA.getDateOfBirthInput().click();
+        registrationPageDemQA.getYearSelect().selectOption("1970");
+        registrationPageDemQA.getMonthSelect().selectOption("June");
         registrationPageDemQA.selectDay();
         registrationPageDemQA.selectSubject("Math");
-        registrationPageDemQA.subjectsInput.click();
-        registrationPageDemQA.hobbiesCheckbox2.click();
-        registrationPageDemQA.hobbiesCheckbox3.click();
-        registrationPageDemQA.uploadPictureInput.uploadFile(new File("C:\\Users\\ВИТАЛЬ\\Pictures\\tomato.jpg"));
-        registrationPageDemQA.currentAddressField.setValue("Gomel");
-        registrationPageDemQA.stateDropdown.click();
-        registrationPageDemQA.ncrStateOption.click();
-        registrationPageDemQA.cityDropdown.click();
-        registrationPageDemQA.delhiCityOption.click();
-        registrationPageDemQA.submitButton.click();
+        registrationPageDemQA.getSubjectsInput().click();
+        registrationPageDemQA.getHobbiesCheckbox2().click();
+        registrationPageDemQA.getHobbiesCheckbox3().click();
+        registrationPageDemQA.getUploadPictureInput().uploadFile(new File("src/test/resources/images/tomato.jpg"));
+        registrationPageDemQA.getCurrentAddressField().setValue("Gomel");
+        registrationPageDemQA.getStateDropdown().click();
+        registrationPageDemQA.getNcrStateOption().click();
+        registrationPageDemQA.getCityDropdown().click();
+        registrationPageDemQA.getDelhiCityOption().click();
+        registrationPageDemQA.getSubmitButton().click();
 
-
-        String registrationProofText = registrationPageDemQA.registrationProof.getText();
-        assertTrue(registrationProofText.contains("Thanks for submitting the form"), "Регистрация не прошла успешно.");
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        WebDriverSingleton.quitDriver();
+        registrationPageDemQA.getRegistrationProof().shouldHave(text("Thanks for submitting the form"));
     }
 }

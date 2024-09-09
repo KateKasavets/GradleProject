@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverSingleton {
-    public static WebDriver driver;
+    private static WebDriver driver;
 
     private WebDriverSingleton() {
 
@@ -25,6 +25,7 @@ public class WebDriverSingleton {
     public static void quitDriver() {
         if (driver != null) {
             driver.quit();
+            driver = null;
         }
     }
 }
