@@ -29,7 +29,6 @@ public class ExclusionTests extends BaseTest {
     @Test
     public void tryNowButton() {
         logPage.signInWithTryNowButton();
-        WebElement tryNowElement = driver.findElement(By.xpath("//a[@class='link']"));
-        Assert.assertTrue(tryNowElement.isDisplayed(), "Кнопка Sign in не найдена или не видима на странице.");
+        Assert.assertTrue(logPage.isTryNowButtonDisplayed(), "Кнопка Sign in не найдена или не видима на странице.");
     }
 }

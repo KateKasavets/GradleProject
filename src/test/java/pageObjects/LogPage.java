@@ -60,11 +60,16 @@ public class LogPage {
         enterText(emailField, email);
         enterText(passwordField, password);
         clickSignInButton();
+        wait.until(ExpectedConditions.textToBePresentInElement(errorMessage, "Incorrect username or password."));
         return getErrorMessage();
     }
 
     public void signInWithTryNowButton() {
         tryNowButton.click();
+    }
+
+    public boolean isTryNowButtonDisplayed() {
+        return tryNowButton.isDisplayed();
     }
 
     public void chooseEyesProduct() {
@@ -101,7 +106,7 @@ public class LogPage {
     }
 
     public void clickLogOutButton() {
-            logOutButton.click();
+        logOutButton.click();
     }
 
     public boolean isSignInPageTitleDisplayed() {
