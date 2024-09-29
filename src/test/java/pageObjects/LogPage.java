@@ -44,6 +44,9 @@ public class LogPage {
     @FindBy(xpath = "//h1[@class='title']")
     private WebElement signInPageTitle;
 
+    @FindBy(xpath = "//div[@id=\"email-err-msg\"]")
+    private WebElement emailErrMsg;
+
     public LogPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -85,8 +88,12 @@ public class LogPage {
         signInButton.click();
     }
 
-    private String getErrorMessage() {
+    public String getErrorMessage() {
         return errorMessage.getText();
+    }
+
+    public String getEmailErrMsg(){
+        return emailErrMsg.getText();
     }
 
     public boolean isUserProfileButtonDisplayed() {

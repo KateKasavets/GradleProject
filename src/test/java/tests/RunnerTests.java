@@ -2,17 +2,13 @@ package tests;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import org.testng.annotations.Test;
+
 
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "steps",
-        tags = "@login"
-
+        tags = "@login and @negative and @userSession"
 )
-public class RunnerTests extends AbstractTestNGCucumberTests {
-    @Test
-    public void runCucumberTests() {
 
-    }
+public class RunnerTests extends AbstractTestNGCucumberTests {
 }
