@@ -15,9 +15,9 @@ Feature: Unsuccessful attempt to log in and then switch to registration
     When user attempts to log in with invalid email "evinasenlaaaa@gmail.com" and password "kk25474kkKK!"
     Then user should see an error message "Incorrect username or password."
 
-    Scenario: Login with invalid email format
-      When user attempts to log in with invalid email format "evinasenla@gmail.com12" and password "kk25474kkKK!"
-      Then user should see an error message "Please enter a valid email"
+  Scenario: Login with invalid email format
+    When user attempts to log in with invalid email format "evinasenla@gmail.com12" and password "kk25474kkKK!"
+    Then user should see an error message "Please enter a valid email"
 
   Scenario: Navigation to registration page
     When user clicks "Try now" button

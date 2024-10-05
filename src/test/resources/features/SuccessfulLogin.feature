@@ -7,7 +7,7 @@ Feature: Successful user log in to battle.net website
   Scenario Outline: Successful Login
     Given user navigates to "https://eu.account.battle.net"
     When user enters "<login>" and "<password>"
-    Then user should see title "<Обзор учетной записи>"
+    Then user should see title "Обзор учетной записи"
 
     Examples:
       | login                           | password  |
