@@ -53,4 +53,7 @@ public class ConfProperties {
     public static String getLogin2() {
         return getProperty("login2");
     }
+    public static String getDemoQaPage() {
+        return getProperty("demoQAPage");
+    }
 }
