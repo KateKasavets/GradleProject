@@ -19,6 +19,7 @@ public class RegistrationDemQATests {
         Configuration.browserSize = "1920x1080";
         Configuration.screenshots = true;
         Configuration.reportsFolder = "test-result/reports";
+        Configuration.headless = true;
         registrationPageDemQA = new RegistrationPageDemQA();
     }
 
