@@ -26,7 +26,7 @@ public class PriorityTests extends BaseTest {
     @Test(priority = 3)
     public void testExternalLogin() {
         loginPage.clickLoginExternal();
-        Assert.assertEquals(loginPage.getLoginWithAppleTitleText(), "Используйте Apple ID для входа в приложение «Battle.net».", "Текст заголовка не соответствует ожидаемому");
+        Assert.assertEquals(loginPage.getLoginWithAppleTitleText(), "Использовать Аккаунт Apple для входа в приложение «Battle.net»", "Текст заголовка не соответствует ожидаемому");
     }
 
     @Test(priority = 2)

@@ -60,6 +60,7 @@ public class LogPage {
         enterText(emailField, email);
         enterText(passwordField, password);
         clickSignInButton();
+        wait.until(ExpectedConditions.textToBePresentInElement(errorMessage, "Incorrect username or password."));
         return getErrorMessage();
     }
 

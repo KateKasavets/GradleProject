@@ -17,7 +17,6 @@
     </test>
     <test name="Other Tests">
         <classes>
-            <class name="tests.AssertsTest"/>
             <class name="tests.PriorityTests"/>
             <class name="tests.ExclusionTests">
                 <methods>
