@@ -34,9 +34,4 @@ public class PriorityTests extends BaseTest {
         loginPage.clickLoginBtn();
         Assert.assertEquals(loginPage.getErrorMessageText(), "Введите имя учетной записи.");
     }
-
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
-    }
 }
