@@ -14,16 +14,15 @@ import utils.WebDriverSingleton;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static steps.Hooks.logPage;
 
 
-public class LoginAndLogOutSteps {
+public class LoginAndLogOutSteps extends BaseSteps {
     private LogPage logPage;
-    private WebDriver driver;
 
-    @Before
-    public void setUp() {
-        driver = WebDriverSingleton.getDriver();
-        logPage = new LogPage(driver);
+    public LoginAndLogOutSteps() {
+        super(Hooks.driver);
+        this.logPage = new LogPage(driver);
     }
 
     @Given("user navigates to the demo login page")
@@ -71,8 +70,4 @@ public class LoginAndLogOutSteps {
         assertEquals(logPage.getSignInPageTitleText(), "Sign in", "Пользователь не на странице авторизации");
     }
 
-    @After
-    public void tearDown() {
-        WebDriverSingleton.quitDriver();
-    }
 }

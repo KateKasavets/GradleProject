@@ -16,17 +16,13 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
-public class UnsuccessfulLoginSteps {
+public class UnsuccessfulLoginSteps extends BaseSteps{
     private LogPage logPage;
     private String errorMessage;
-    private WebDriver driver;
 
-    @Before
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        logPage = new LogPage(driver);
+    public UnsuccessfulLoginSteps(){
+        super(Hooks.driver);
+        this.logPage = new LogPage(driver);
     }
 
     @Given("user navigates to the demo page")
@@ -63,12 +59,5 @@ public class UnsuccessfulLoginSteps {
     @Then("user should see the registration page")
     public void userShouldSeeRegistrationPage() {
         Assert.assertTrue(logPage.isTryNowButtonDisplayed(), "Кнопка регистрации 'Try now' не отображается");
-    }
-
-    @After
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
     }
 }
