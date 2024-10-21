@@ -11,18 +11,19 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.seleniumhq.selenium:selenium-java:4.23.1'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.25.0'
     testImplementation 'org.testng:testng:7.10.2'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'com.codeborne:selenide:7.4.1'
-    testImplementation 'io.cucumber:cucumber-testng:7.18.1'
     testImplementation 'io.cucumber:cucumber-java:7.18.1'
+    testImplementation 'io.cucumber:cucumber-testng:7.18.1'
+    testImplementation 'io.cucumber:cucumber-picocontainer:7.18.1'
 }
-
 
 test {
     useTestNG() {
         suites 'src/test/resources/testng.xml'
+        scanForTestClasses = false
     }
 
     testLogging {
@@ -40,4 +41,3 @@ tasks.withType(JavaCompile).configureEach {
     sourceCompatibility = '17'
     targetCompatibility = '17'
 }
-

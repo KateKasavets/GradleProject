@@ -44,4 +44,5 @@ bin/
 
 ### Custom ###
 test-result/reports/
-target
+target/
+test-result/

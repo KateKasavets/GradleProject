@@ -1,5 +1,10 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite1" parallel="false">
+    <test name="CucumberTest">
+        <classes>
+            <class name="tests.RunnerTests"/>
+        </classes>
+    </test>
     <test name="LoginTest">
         <classes>
             <class name="tests.LoginTest"/>

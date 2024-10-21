@@ -44,6 +44,9 @@ public class LogPage {
     @FindBy(xpath = "//h1[@class='title']")
     private WebElement signInPageTitle;
 
+    @FindBy(xpath = "//div[@id=\"email-err-msg\"]")
+    private WebElement emailErrMsg;
+
     public LogPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -68,6 +71,10 @@ public class LogPage {
         tryNowButton.click();
     }
 
+    public boolean isTryNowButtonDisplayed() {
+        return tryNowButton.isDisplayed();
+    }
+
     public void chooseEyesProduct() {
         wait.until(ExpectedConditions.elementToBeClickable(chooseEyesProduct)).click();
     }
@@ -81,8 +88,12 @@ public class LogPage {
         signInButton.click();
     }
 
-    private String getErrorMessage() {
+    public String getErrorMessage() {
         return errorMessage.getText();
+    }
+
+    public String getEmailErrMsg(){
+        return emailErrMsg.getText();
     }
 
     public boolean isUserProfileButtonDisplayed() {
@@ -102,7 +113,7 @@ public class LogPage {
     }
 
     public void clickLogOutButton() {
-            logOutButton.click();
+        logOutButton.click();
     }
 
     public boolean isSignInPageTitleDisplayed() {
