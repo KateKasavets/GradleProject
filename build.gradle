@@ -18,8 +18,6 @@ dependencies {
     testImplementation 'io.cucumber:cucumber-java:7.18.1'
     testImplementation 'io.cucumber:cucumber-testng:7.18.1'
     testImplementation 'io.cucumber:cucumber-picocontainer:7.18.1'
-
-
 }
 
 test {
@@ -38,7 +36,7 @@ test {
     }
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     sourceCompatibility = '17'
     targetCompatibility = '17'
