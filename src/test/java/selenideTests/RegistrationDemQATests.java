@@ -1,6 +1,7 @@
 package selenideTests;
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utils.ConfProperties;
@@ -9,6 +10,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 
+@Epic("Registration")
+@Feature("Successful registration")
 public class RegistrationDemQATests {
 
     private RegistrationPageDemQA registrationPageDemQA;
@@ -23,6 +26,8 @@ public class RegistrationDemQATests {
         registrationPageDemQA = new RegistrationPageDemQA();
     }
 
+    @Description("Check successful registration with Selenide")
+    @Severity(SeverityLevel.CRITICAL)
     @Test
     public void RegistrationTests() {
         open(ConfProperties.getDemoQaPage());

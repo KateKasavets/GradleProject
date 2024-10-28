@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -9,6 +10,9 @@ import utils.ConfProperties;
 
 import java.util.concurrent.TimeUnit;
 
+
+@Epic("Authorization")
+@Feature("Parameterized test")
 public class ParameterizedTest {
     private WebDriver driver;
     private LoginPage loginPage;
@@ -31,6 +35,8 @@ public class ParameterizedTest {
         };
     }
 
+    @Description("Check that profile page title is displayed after authorization")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(dataProvider = "loginData")
     public void loginTest(String login, String password) {
         loginPage.login(login, password);
