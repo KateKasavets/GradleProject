@@ -1,13 +1,16 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageObjects.LoginPage;
 import utils.ConfProperties;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.Assert.assertTrue;
 
+@Epic("Authorization")
+@Feature("Login 1 user")
 public class LoginTest extends BaseTest {
 
     private LoginPage loginPage;
@@ -20,12 +23,12 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Description("Check successful login")
+    @Severity(SeverityLevel.CRITICAL)
     public void loginTest() {
         loginPage.login(ConfProperties.getLogin(), ConfProperties.getPassword());
-        assertTrue("Название страницы отображается", loginPage.isPageTitleDisplayed());
-        assertEquals("Обзор учетной записи", loginPage.getPageTitleText(), "Текст заголовка не соответствует ожидаемому");
+
+        assertTrue(loginPage.isPageTitleDisplayed(), "Название страницы не отображается");
+        assertEquals(loginPage.getPageTitleText(), "Обзор учетной записи", "Текст заголовка не соответствует ожидаемому");
     }
 }
-
-
-
