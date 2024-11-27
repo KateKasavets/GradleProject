@@ -22,7 +22,6 @@
     </test>
     <test name="DBTests">
         <classes>
-            <class name="dataBaseTests.DatabaseConnectionTest"/>
             <class name="dataBaseTests.CRUDTestsDB"/>
             <class name="dataBaseTests.SelectApplicantApplicationTest"/>
         </classes>

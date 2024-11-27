@@ -2,12 +2,9 @@ package dataBaseTests;
 
 import org.testng.annotations.Test;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class SelectApplicantApplicationTest {
+public class SelectApplicantApplicationTest extends BaseDbTest {
 
     @Test
     public void testSelectApplicantAndApplication() {
@@ -17,9 +14,8 @@ public class SelectApplicantApplicationTest {
                 "ORDER BY applications.statusofapplication " +
                 "LIMIT 25";
 
-        try (Connection connection = DatabaseConnection.connectionToDB();
-             PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(selectQuery)) {
 
             while (resultSet.next()) {
                 String surname = resultSet.getString("surname");
@@ -27,14 +23,13 @@ public class SelectApplicantApplicationTest {
                 String kindOfApplication = resultSet.getString("kindofapplication");
                 String statusOfApplication = resultSet.getString("statusofapplication");
 
-                System.out.println("Surname: "+ surname + ",Name: " + name +
+                System.out.println("Surname: " + surname + ",Name: " + name +
                         ", Kind of Application: " + kindOfApplication +
                         ", Status of Application: " + statusOfApplication);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Ошибка при выполнении запроса: "+ e.getMessage());
         }
     }
 }
