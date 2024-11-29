@@ -1,7 +1,7 @@
 package dataBaseTests;
 
 import org.testng.annotations.Test;
-
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,23 +17,28 @@ public class CRUDTestsDB extends BaseDbTest {
 
     @Test
     public void testInsertApplicant() {
-        String insertQuery = "INSERT INTO reg_office.applicants (surname, name, middlename,passportnumber,phonenumber) " +
-                "VALUES ('" + surname + "','" + name + "','" + middlename + "' ,' " + passportNumber + "', '" + phoneNumber + "')";
+        String insertQuery = "INSERT INTO reg_office.applicants (surname, name, middlename, passportnumber, phonenumber) " +
+                "VALUES (?, ?, ?, ?, ?)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setString(1, surname);
+            preparedStatement.setString(2, name);
+            preparedStatement.setString(3, middlename);
+            preparedStatement.setString(4, passportNumber);
+            preparedStatement.setString(5, phoneNumber);
 
-        try {
-            statement.executeUpdate(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.executeUpdate();
             System.out.println("Пользователь добавлен успешно.");
 
-            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     applicantId = generatedKeys.getInt(1);
                     System.out.println("ID новой записи: " + applicantId);
                 } else {
-                    System.out.println("ID новой записи не найден.");
+                    System.out.println("ID новой записи не найдено.");
                 }
             }
-
         } catch (SQLException e) {
+            System.err.println("Ошибка при добавлении записи: " + e.getMessage());
             e.printStackTrace();
         }
     }
