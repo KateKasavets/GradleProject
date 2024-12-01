@@ -56,4 +56,15 @@ public class ConfProperties {
     public static String getDemoQaPage() {
         return getProperty("demoQAPage");
     }
+    public static String getDbUrl() {
+        return getProperty("dbUrl");
+    }
+
+    public static String getDbUser() {
+        return getProperty("dbUser");
+    }
+
+    public static String getDbPassword() {
+        return getProperty("dbPassword");
+    }
 }

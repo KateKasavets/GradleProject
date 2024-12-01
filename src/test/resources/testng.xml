@@ -20,6 +20,12 @@
             <class name="tests.ParameterizedTest"/>
         </classes>
     </test>
+    <test name="DBTests">
+        <classes>
+            <class name="dataBaseTests.CRUDTestsDB"/>
+            <class name="dataBaseTests.SelectApplicantApplicationTest"/>
+        </classes>
+    </test>
     <test name="Other Tests">
         <classes>
             <class name="tests.PriorityTests"/>
